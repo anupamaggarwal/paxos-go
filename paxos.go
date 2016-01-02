@@ -560,7 +560,6 @@ func (px *Paxos) Max() int {
 // instances.
 //
 func (px *Paxos) Min() int {
-	// You code here.
 	min := 100000
 	lastDoneReq := &LastDoneMsg{}
 	lastDoneRep := &LastDoneReply{}
@@ -658,8 +657,6 @@ func Make(peers []string, me int, rpcs *rpc.Server) *Paxos {
 
 	px.me = me
 
-	// Your initialization code here.
-
 	if rpcs != nil {
 		// caller will create socket &c
 		rpcs.Register(px)
@@ -675,9 +672,6 @@ func Make(peers []string, me int, rpcs *rpc.Server) *Paxos {
 			log.Fatal("listen error: ", e)
 		}
 		px.l = l
-
-		// please do not change any of the following code,
-		// or do anything to subvert it.
 
 		// create a thread to accept RPC connections
 		go func() {
